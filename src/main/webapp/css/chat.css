@@ -1,0 +1,557 @@
+@charset "euc-kr";
+/* /////////////////////////////
+적용 되는 곳
+	- 플레이어1.0 채팅 영역
+	- 플래시플레이어 채팅 영역 (2014.10)
+///////////////////////////// */
+
+* {margin:0;padding:0;font-size:12px;font-family:'돋움',dotum;}
+*html {overflow:hidden;}
+body {width:100%; height:100%;background:#fff}
+
+/* .chat_area {_position:relative; width:100%; height:100%; margin:0; _overflow-y:scroll; _overflow:auto;} */
+/* .chat_area {width:100%;height:100%;margin:0;} */
+.chat_area p {margin:0;padding:0;font-size:12px;line-height:16px;font-family:'돋움',dotum;}
+.chat_area a {text-decoration:none}
+
+.chat_area dl {clear:both;margin:6px 5px 0 8px;_position:relative}
+.chat_area dl dt { position:relative; padding:1px 0 1px 20px;color:#767676;background:url(http://www.afreeca.com/images/new_app/chat/ic_chat_v2.gif) no-repeat;line-height:1.2em} /* 2015-05-27  position 추가 */
+.chat_area .layer_context_list dl dt {background:none;} /* 2015-05-27 추가 */
+.chat_area dl dt img {vertical-align:middle;margin:0 2px 3px 0}
+.chat_area dl dt a {color:#767676;}
+.chat_area dl dd {padding:1px 3px 0 20px;line-height:16px;color:#000; 
+word-wrap: break-word; /* Internet Explorer 5.5+ */
+white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+white-space: -pre-wrap; /* Opera 4-6 */
+white-space: -o-pre-wrap; /* Opera 7 */
+word-break:break-all;
+}
+.talk {color:#000 !important;} /* 2014-09-29 추가 */
+
+.chat_area em {font-family:tahoma;font-size:11px;font-style:normal;}
+
+/* 댓글형 */
+.chat_area .wh_c {background:#fff}
+.chat_area .gr_c {background:#f6f6f6}
+.chat_area dl.comment {margin:0}
+.chat_area dl.comment dt {padding:14px 0 0 6px;color:#333;font-size:11px;background:none}
+.chat_area dl.comment dd {padding:1px 0 11px 6px;line-height:16px;font-size:10px;color:#3670bf}
+.chat_area dl.comment dd .time {font-family:tahoma;color:#999;font-size:10px;font-style:normal;}	
+.chat_area dl.comment dd a {font-size:11px;color:#3670bf}
+
+/* 방장채팅 */
+.chat_area dl.bj dt {color:#ed391c;font-weight:bold}
+.chat_area dl.bj dt a {color:#ed391c}
+.chat_area dl.bj dd {color:#000;font-weight:bold}
+.talk_bj {color:#000 !important;} /*  2014-09-29 추가 */
+.chat_area dl.bj dd.chat_img {padding-left:0 !important; width:181px; height:38px;}/* 2103.07 수정 */
+
+/* 열혈팬채팅 */
+.chat_area dl.hot dd {color:#e73ca2}
+.chatTopfanMsg {color:#e73ca2 !important;} /* 2014-09-29 추가 */
+
+/* 팬클럽채팅 */
+.chat_area dl.fan dd {color:#56a704}
+.chatfanMsg {color:#56a704 !important;} /* 2014-09-29 추가 */
+
+/* 개인채팅 */
+.chat_area dl.mychat dd {color:#2f84e5} 
+.chatOwnMsg2 {color:#2f84e5 !important;} /* 2014-09-29 추가 */
+
+/* 운영자안내 */
+.chat_area dl.info dt {color:#af7c68;font-weight:bold}
+.chat_area dl.info dt a {color:#af7c68}
+.chat_area dl.info dd {color:#af7c68}
+
+/* 남자 icon 110614 */
+.chat_area .man {background-position:0 0}/* BJ */
+.chat_area .manager_m {background-position:0 -35px} /* 매니저 */
+.chat_area .hot_m {background-position:0 -70px} /* 열혈팬 */
+.chat_area .fan_m {background-position:0 -105px} /* 팬클럽 */
+.chat_area .user_m {background-position:0 -140px} /* 일반 */
+.chat_area .supporter_m {background-position:0 -140px} /* 일반 */
+.chat_area .out_m {background-position:0 -175px} /* 퇴장 */
+.chat_area .user_mb {background-position:0 -210px} /* 블라인드 */
+.chat_area .supporter_mb {background-position:0 -210px} /* 블라인드 */
+.chat_area .user_mw {background-position:0 -245px} /* 벙어리 */
+.chat_area .supporter_mw {background-position:0 -245px} /* 벙어리 */
+.chat_area .user_gm {background-position:0 -771px}/* 글로벌남자 */
+.chat_area .supporter_gm {background-position:0 -771px}/* 글로벌남자 */
+.chat_area .man_g {background-position:0 -847px}/* 글로벌남자 BJ */
+
+/* 여자 icon 110614 */
+.chat_area .woman {background-position:0 -280px} /* BJ */	
+.chat_area .manager_w {background-position:0 -315px} /* 매니저 */	
+.chat_area .hot_w {background-position:0 -350px} /* 열혈팬 */
+.chat_area .fan_w {background-position:0 -385px} /* 팬클럽 */	
+.chat_area .user_w {background-position:0 -420px} /* 일반 */	
+.chat_area .supporter_w {background-position:0 -420px} /* 일반 */	
+.chat_area .out_w {background-position:0 -455px} /* 퇴장 */
+.chat_area .user_wb {background-position:0 -490px} /* 블라인드 */	
+.chat_area .supporter_wb {background-position:0 -490px} /* 블라인드 */	
+.chat_area .user_ww {background-position:0 -525px} /* 벙어리 */	
+.chat_area .supporter_ww {background-position:0 -525px} /* 벙어리 */	
+.chat_area .user_gw {background-position:0 -808px}/* 글로벌여자 */
+.chat_area .supporter_gw {background-position:0 -808px}/* 글로벌여자 */
+.chat_area .woman_g {background-position:0 -885px}/* 글로벌여자 BJ */
+
+/* 모바일 icon 110919 */
+.chat_area .phone {background-position: 0 -629px} 
+.chat_area .global_phone {background-position: 0 -926px} 
+/* 2015-06-01 add */
+.psncon_support {position:absolute; left:15px; top:5px; overflow:hidden; text-indent:-1111px; width:5px; height:7px; background:url(http://www.afreeca.com/images/new_app/chat/psncon_support.gif) no-repeat 0 0;} 
+.vlist .psncon_support {left:27px; top:7px; z-index:9999;}
+
+/* 안내 icon 110614 */
+/* .speak {background-position:2px -558px} *//* 공지 */	
+.chat_area .ear {background-position:0 -592px;font-weight:normal !important} /* 귓말 110628 */	
+ /* 귓말거부상태 2015-05-27 */	
+ .chat_area .ear_deny {color:#444; font-size:11px; line-height:1.3em; padding:10px 25px; text-align:center; background:#f0f0f0;}
+.chat_area .ear_deny a {color:#444;}
+.chat_area .ear_deny a em {color:#0064d5;}
+/* 110920 */
+.chat_area .speak dt {background-position:0 -678px;color:#4286c9;font-weight:bold;padding-top:1px}
+.chat_area .police dt {background-position:0 -727px;color:#d63543;font-weight:bold;padding-top:4px;height:13px}
+.chat_area .illegal dt {color:#ff3300;}/* 2015-10-01 추가 */
+.chat_area .servernt dt {background-position:0 -972px;color:#1075ed;font-weight:bold;padding-top:4px;height:13px}
+.chat_area .police dd,
+.chat_area .speak dd,
+.chat_area .servernt dd{padding:0 8px 0 0}
+.chat_area .speak dd .box_o {border:1px solid #0a4991;border-radius:3px;}
+.chat_area .police dd .box_o {border:1px solid #991b26;border-radius:3px;}
+.chat_area .illegal dd .box_o {border:1px solid #c3c3c3; border-radius:2px;} /* 2015-10-01 추가 */
+.chat_area .servernt dd .box_o {border:1px solid #0243ae;border-radius:3px;}
+.chat_area .speak dd .box_i {border:1px solid #6ca1d5;background-color:#4286c9;color:#fff;border-radius:2px;}
+.chat_area .speak dd .box_i p {color:#fff;word-break:break-all;word-wrap: break-word;}
+.chat_area .police dd .box_i {border:1px solid #df616c;background-color:#d63543;color:#fff;border-radius:2px;}
+.chat_area .illegal dd .box_i {border:none;background:none;} /* 2015-10-01 추가 */
+.chat_area .police dd .box_i p {color:#fff;word-break:break-all;word-wrap: break-word;}
+.chat_area .illegal dd .box_i p {color:#ff3300;letter-spacing:-1px;word-break:break-all;word-wrap: break-word;} /* 2015-10-01 추가 */
+.chat_area .servernt dd .box_i {border:1px solid #407ee5;background-color:#0a5ade;color:#fff;border-radius:2px;}
+.chat_area .servernt dd .box_i p {color:#fff;word-break:break-all;word-wrap: break-word;}
+.chat_area .box_i p {margin:0 8px;padding:4px 0 2px 0}
+.chat_area .illegal .box_i p {margin:0 10px 0 9px;padding:8px 0 3px 0; text-align:justify;} /* 2015-10-01 추가 */
+.chat_area .box_o {width:100%;margin:3px 0 0 0;position:relative}
+.chat_area .box_o img {position:absolute;display:none;} /* 2015-11-13 display:none 추가 */
+.chat_area .box_o .ic_arw {top:-4px;left:41px;display:block;} /* 2015-11-13 display:block 추가 */
+.chat_area .box_o .ic_arw_sp {position:absolute; top:-4px;left:41px; width:7px; height:5px; overflow:hidden; text-indent:-1111px; background:url('http://www.afreeca.com/images/new_app/chat/ic_white_arw.gif') no-repeat 0 0;} /* 2015-11-11 추가 */
+.chat_area .box_o .run_lt {top:-1px;left:-1px}
+.chat_area .box_o .run_rt {top:-1px;right:-1px;}
+.chat_area .box_o .run_lb {bottom:-1px;left:-1px;}
+.chat_area .box_o .run_rb {bottom:-1px;right:-1px;}
+
+/* 이모티콘 On/Off */
+.chat_area .emo_notice {margin:4px 3px 5px 6px;padding-left:5px;font-size:11px;color:#9a9a9a;}
+
+/* 안내글 */
+.chat_area .notice {margin:4px 3px 5px 6px;padding-left:15px;font-size:11px;color:#9a9a9a;position:relative;}
+.chat_area .notice a {font-size:11px;color:#9a9a9a}
+.chat_area .notice span {font-size:11px}
+.chat_area .name {font-size:11px;color:#666}
+.chat_area .name a {font-size:11px;color:#666}
+.chat_area .name span {color:#af7c68;font-weight:bold}
+
+.smode .chat_area .name {color:#9a9a9a;}
+.smode .chat_area .name a {color:#9a9a9a}
+.smode .chat_area .name span {color:#e7816d;}
+
+.chat_area span.user {color:#000}
+.chat_area span.supporter {color:#000}
+.chat_area span.manager {color:#686fd2;font-weight:bold}
+.chat_area .support, 
+.chat_area .support a {color:#6934c1;font-weight:bold;letter-spacing:-1px}/* 120918 */
+/* span.hotfan */ 
+.chat_area .hotfan, 
+.chat_area .hotfan a {color:#E15277;font-weight:bold;letter-spacing:-1px}/* 110628 */
+
+.smode .chat_area .hotfan, 
+.smode .chat_area .hotfan a {color:#e7816d;}/* 2015-11-18 추가 */
+
+/* span.fanclub, */
+.chat_area .fanclub,
+.chat_area .fanclub a {color:#56a704;font-weight:bold;letter-spacing:-1px}/* 110628 */
+.chat_area .hotfan em, 
+.chat_area .fanclub em {letter-spacing:0}
+.chat_area span.caution {color:#e7816d;font-weight:bold}
+.chat_area span.bold {font-weight:bold}
+.chat_area .blacklist,
+.chat_area .blacklist a {color:#e7816d;font-weight:bold}/* 120409 */
+
+.chat_area span.relay {font-size:11px;color:#1e74c7;font-weight:bold;letter-spacing:-1px}/* 120409 */
+
+/* bullet */
+.chat_area .in {padding-left:24px;background:url(http://www.afreeca.com/images/new_app/chat/bul_in.gif) no-repeat 16px 5px}
+.chat_area .out {padding-left:24px;background:url(http://www.afreeca.com/images/new_app/chat/bul_out.gif) no-repeat 16px 5px}
+
+/* 배경 */
+.chat_area .box_ice {margin:11px 0 16px 0;padding:16px 0 12px 0;background:#e9f6ff}
+.chat_area .box_end {margin:11px 0 0 0;padding:9px 0 6px 0;background:#fafafa}
+.chat_area .box_hot {margin:0;padding:9px 0 7px 21px;background:#ffeff3;}
+
+/* 배경 텍스트 */
+.chat_area .ice {padding:0;text-align:center;font-size:11px;color:#5e83b5}
+.chat_area .space {margin-bottom:12px}
+.chat_area .ice span {color:#2550b1;font-weight:bold;font-size:12px}
+.chat_area .txt_g {padding:0;text-align:center;font-size:11px;color:#666}
+.chat_area .txt_g span {color:#666;font-weight:bold;font-size:12px}
+
+/* flash 110628 */
+/* .chat_area .flash {width:195px;height:145px;200px;position:relative;margin:5px 0 30px 0}
+
+.chat_area .flash .bal_txt {font-size:11px;font-weight:bold;color:#333;letter-spacing:-1px}
+.chat_area .flash .bal_txt strong {font-size:11px}
+.chat_area .flash .bal_txt .num {letter-spacing:0;font-size:11px} */
+
+/* 스티커 및 별풍선 */
+.chat_area .flash {width:195px;height:145px;/* 200px; */position:relative;/*margin:5px 0 30px 0*/margin:5px 0 15px 0}
+.chat_area .flash .text {width:195px;position:absolute;text-align:center;bottom:2px;left:0;color:#357DB8;letter-spacing:0;color:#f5401c;line-height:1.2em}
+.chat_area .flash .bal_txt {font-size:11px;font-weight:bold;color:#333;letter-spacing:-1px}
+.chat_area .flash .bal_txt strong {font-size:11px}
+.chat_area .flash .bal_txt .num {letter-spacing:0;font-size:11px}
+.chat_area .flash .text_s {width:195px;position:absolute;text-align:center;bottom:2px;left:0;color:#666;letter-spacing:0;line-height:1.2em;}
+.chat_area .flash .text_s .bal_txt .num {color:#f52b37;font-weight:bold}
+.chat_area .flash .text_s .bal_txt {color:#666;font-weight:normal}
+
+/* 이미지 스티커 추가 */
+.chat_area .sticker_area {width:192px;height:200px;position:relative;text-align:center;margin:0 auto}
+.chat_area .sticker_area .ea {position:absolute;top:20px;left:0;text-align:center;width:100%;font-weight:bold;color:#edba3b;font-size:33px;font-family:verdana;line-height:1.0em;font-style:italic;letter-spacing:-1px}
+
+.chat_area .sticker_area .text {width:195px;position:absolute;text-align:center;bottom:2px;left:0;color:#357DB8;letter-spacing:0;color:#f5401c;line-height:1.2em}
+.chat_area .sticker_area .bal_txt {font-size:11px;font-weight:bold;color:#333;letter-spacing:-1px}
+.chat_area .sticker_area .bal_txt strong {font-size:11px}
+.chat_area .sticker_area .bal_txt .num {letter-spacing:0;font-size:11px}
+.chat_area .sticker_area .text_s {width:195px;position:absolute;text-align:center;bottom:2px;left:0;color:#666;letter-spacing:0;line-height:1.2em;}
+.chat_area .sticker_area .text_s  a {color:#666;letter-spacing:0;line-height:1.2em;}
+.chat_area .sticker_area .text_s .bal_txt .num {color:#f52b37;font-weight:bold}
+.chat_area .sticker_area .text_s .bal_txt {color:#666;font-weight:normal}
+/* 
+모바일 sticker_s0
+너님최고 sticker_s1
+눈이부셔 sticker_s2
+멘탈붕괴 sticker_s3
+미션성공 sticker_s4
+미션실패 sticker_s5
+예뻐요 sticker_s6
+의지부족 sticker_s7
+잘했어요 sticker_s8
+지켜보긔 sticker_s9
+ㅋㅋㅋㅋ sticker_s10
+힘내요 sticker_s11
+사랑해 sticker_s12
+ */
+.chat_area .sticker_s0 .ea {color:#edba3b}
+.chat_area .sticker_s1 .ea {color:#b70002}
+.chat_area .sticker_s2 .ea {color:#ff5c01}
+.chat_area .sticker_s3 .ea {color:#fd0000}
+.chat_area .sticker_s4 .ea {color:#3a3a3a}
+.chat_area .sticker_s5 .ea {color:#000000}
+.chat_area .sticker_s6 .ea {color:#fff}
+.chat_area .sticker_s7 .ea {color:#000000}
+.chat_area .sticker_s8 .ea {color:#30188a}
+.chat_area .sticker_s9 .ea {color:#ffeb01}
+.chat_area .sticker_s10 .ea {color:#242424}
+.chat_area .sticker_s11 .ea {color:#d9edff}
+.chat_area .sticker_s12 .ea {color:#ffea00}
+.chat_area .sticker_setc .ea {color:#e5ff00}
+
+/* 110801 소셜추가 */
+.chat_area dl.social_site {border-bottom:1px solid #ffffff; border-left:2px solid #ffffff; border-right:2px solid #ffffff; background:#f0f0f0; margin:0; text-align:center; padding:10px 0;}
+.chat_area dl.social_site dt {color:#444444; font-size:11px; background:none; padding:0;}
+.chat_area dl.social_site dt em {text-decoration:normal; color:#222222; font-family:'돋움',dotum; padding-right:1px;}
+.chat_area dl.social_site dt span {color:#0064d5; font-size:11px;}
+.chat_area dl.social_site .t {display:inline-block;background:url(http://www.afreeca.com/images/new_app/chat/bg_social.gif) 0px 0px no-repeat; padding:0px; color:#ffffff; height:20px; width:128px; text-align:left; font-size:11px; margin-top:3px;}
+.chat_area dl.social_site .m {display:inline-block;background:url(http://www.afreeca.com/images/new_app/chat/bg_social.gif) 0px -21px no-repeat; padding:0px; color:#ffffff; height:20px; width:128px; text-align:left; font-size:11px; margin-top:3px;}
+.chat_area dl.social_site .f {display:inline-block;background:url(http://www.afreeca.com/images/new_app/chat/bg_social.gif) 0px -42px no-repeat; padding:0px; color:#ffffff; height:20px; width:128px; text-align:left; font-size:11px; margin-top:3px;}
+.chat_area dl.social_site a {color:#ffffff; display:block; padding: 3px 0 0 23px;}
+
+/* 111011 소셜추가 */
+.chat_area .social_area {margin:5px 0;}
+.chat_area dl.social_list {border:1px solid #ffffff; background:#f6f6f6; margin:0; padding:5px 5px; letter-spacing:-1px;}
+.chat_area dl.social_list dt {color:#777777; font-size:11px; background:none; padding:0; line-height:20px;}
+.chat_area dl.social_list dt span {color:#4050a2; font-weight:bold; padding:0 5px 0 0;}
+.chat_area dl.social_list dd {color:#222222; font-size:11px; background:none; padding:0;}
+.chat_area dl.social_list dd .t {width:13px; height:13px; background:url(http://www.afreeca.com/images/new_app/chat/ico_social.gif) 0 0 no-repeat; margin:0 0 0 2px ; display:inline-block; text-indent:-3000em;}
+.chat_area dl.social_list dd .f {width:13px; height:13px; background:url(http://www.afreeca.com/images/new_app/chat/ico_social.gif) -15px 0 no-repeat; margin:0 0 0 2px ; display:inline-block; text-indent:-3000em;}
+.chat_area dl.social_list dd .m {width:13px; height:13px; background:url(http://www.afreeca.com/images/new_app/chat/ico_social.gif) -30px 0 no-repeat; margin:0 0 0 2px ; display:inline-block; text-indent:-3000em;}
+
+/* 소셜댓글 */
+.chat_area .new_msg {letter-spacing:-1px; width:100%; text-align:center; background:#f9f9f9; border-bottom:1px solid #f0f0f0;}
+.chat_area .new_msg a {display:block; padding:7px 0 6px 0;}
+.chat_area .new_msg span {padding:0 0 0 18px; background:url(http://www.afreeca.com/images/new_app/chat/ico_reple.gif) 0 0 no-repeat; font-size:11px; color:#2e68c3;}
+
+.chat_area .pass_msg {letter-spacing:-1px; width:100%; text-align:center; background:#f8f8f8; border-top:1px solid #cdcdcd; border-bottom:2px solid #eeeeee;}
+.chat_area .pass_msg a {display:block; padding:7px 0 6px 0;}
+.chat_area .pass_msg span {padding:0 16px 0 0; background:url(http://www.afreeca.com/images/new_app/chat/ico_reple.gif) right -42px no-repeat; font-size:11px; color:#54575d;}
+
+.chat_area .no_msg {color:#444444; font-size:11px; letter-spacing:-1px; line-height:18px; padding:18px 0; text-align:center;}
+.chat_area .no_msg span {color:#2d65bc; font-size:11px;}
+
+.chat_area .sns_reple {border-bottom:1px solid #eaeaea; position:relative; padding:5px 0; float:left; width:100%; min-height:62px;}
+.chat_area .thum {width:48px; position:absolute; left:5px; top:5px;}
+.chat_area .thum .t {background: url("http://www.afreeca.com/images/new_app/chat/ico_social.gif") no-repeat 0 0; display: inline-block;height: 13px;margin: 4px 2px 0 0;text-indent: -3000em;width: 13px;}
+.chat_area .thum .f {background: url("http://www.afreeca.com/images/new_app/chat/ico_social.gif") no-repeat -15px 0; display: inline-block;height: 13px;margin: 4px 2px 0 0;text-indent: -3000em;width: 13px;}
+.chat_area .thum .m {background: url("http://www.afreeca.com/images/new_app/chat/ico_social.gif") no-repeat -30px 0; display: inline-block;height: 13px;margin: 4px 2px 0 0;text-indent: -3000em;width: 13px;}
+
+.chat_area .right_smstxt {padding:0 0 0 54px; margin:0; height:62px;}
+.chat_area .right_smstxt .sns_txt {margin:0; padding:0; list-style:none; float:left; width:100%;}
+.chat_area .right_smstxt .sns_txt li {float:left; width:99%;}
+.chat_area .right_smstxt .sns_txt .tit {font-size:11px; font-family:tahoma; padding:0 0 3px 0; color:#1a1a1a; font-weight:bold;}
+.chat_area .right_smstxt .sns_txt .r_text {padding:0 0 16px 0; color:#666; font-size:11px;}
+
+.chat_area .sns_reple .del_re {position:absolute; left:55px; bottom:7px;}
+.chat_area .sns_reple .del_re a {color:#aaaaaa;font-size:11px; text-decoration:underline; color:#aaaaaa; margin-right:5px;}
+.chat_area .sns_reple .del_re .line {background:url("http://www.afreeca.com/images/new_app/chat/line_2011.gif") 0 2px no-repeat; padding:0 0 0 6px;}
+
+.chat_area .sns_reple .time {position:absolute; bottom:7px; right:8px; color:#bebebe; font-size:11px;}
+
+.chat_area .chulchek {text-align:center;padding:5px 0}
+.chat_area .chulchek img {border:none 0}
+
+/* 별풍선 이미지 */
+.chat_area .balloon_area {position:relative;width:195px;height:145px;position:relative;margin:5px auto 15px auto; background:url(http://www.afreeca.com/new_player/items/balloon.png) 0 0 no-repeat;}
+.chat_area .balloon_area.storytelling_on {background:none;} /* 2015-11-17 추가 */
+.chat_area .balloon_area .text {width:195px;position:absolute;text-align:center;bottom:2px;left:0;color:#357DB8;letter-spacing:0;color:#f5401c;line-height:1.2em}
+.chat_area .balloon_area .text a {color:#357DB8;letter-spacing:0;color:#f5401c;line-height:1.2em;position:relative;}
+.chat_area .balloon_area .bal_txt {font-size:11px;font-weight:bold;color:#333;letter-spacing:-1px}
+.chat_area .balloon_area .bal_txt strong {font-size:11px}
+.chat_area .balloon_area .bal_txt .num {letter-spacing:0;font-size:11px}
+.chat_area .balloon_area p.ea {position:absolute;top:18px;left:0;text-align:center;width:100%;color:#0028bd;font-size:45px;font-family:arial;line-height:1.0em;letter-spacing:-1px;z-index:50}
+.chat_area .balloon_area p img {}
+.chat_area .img_balloon {text-align:center;position:absolute;top:6px;width:195px;z-index:10;left:0}
+
+/* 희망풍선 */
+.chat_area .hballoon_area {width:195px;height:145px;position:relative;margin:5px auto 15px auto;/*background:url(http://www.afreeca.com/new_player/items/balloon.png) 0 0 no-repeat;*/position:relative}
+.chat_area .hballoon_area .text {width:195px;position:absolute;text-align:center;bottom:2px;left:0;color:#357DB8;letter-spacing:0;color:#f5401c;line-height:1.2em}
+.chat_area .hballoon_area .bal_txt {font-size:11px;font-weight:bold;color:#333;letter-spacing:-1px}
+.chat_area .hballoon_area .bal_txt strong {font-size:11px}
+.chat_area .hballoon_area .bal_txt .num {letter-spacing:0;font-size:11px}
+.chat_area .hballoon_area p.ea {position:absolute;top:18px;left:0;text-align:center;width:100%;color:#0028bd;font-size:45px;font-family:arial;line-height:1.0em;letter-spacing:-1px;z-index:50}
+.chat_area .img_balloon {text-align:center;position:absolute;top:6px;width:195px;z-index:10;left:0}
+
+/* 클랜원 */
+.chat_area .clan,
+.chat_area .clan a {color:#a34500;font-weight:bold;letter-spacing:-1px}/* 130527 */
+.chat_area .hotclan,
+.chat_area .hotclan a {color:#000fa3;font-weight:bold;letter-spacing:-1px}/* 130527 */
+.chat_area .clan_top {border:1px solid #b8b8b8;margin:0 6px;background:#f6f6f6;padding-bottom:4px}
+
+.chat_area .clan_top .list_game {margin:0 7px 0 19px;border-bottom:1px solid #b8b8b8;padding-bottom:3px}
+.chat_area .clan_top .list_game li {list-style:none;position:relative;height:32px;margin-top:6px}
+.chat_area .clan_top .list_game li a {display:block;padding:9px 0 0 39px;font-weight:bold;font-size:11px;color:#000;height:28px}
+.chat_area .clan_top .list_game li a img {width:26px;height:26px;border:1px solid #000;position:absolute;top:0;left:0}
+
+.chat_area .clan_top p {margin-left: -6px}
+.chat_area .s_chat dl {margin:0 0 5px 2px}
+.chat_area .s_chat dt a {color:##ccc;}
+.chat_area .s_chat dl dd {color:#000 !important}
+.chat_area .s_chat .run_lt {position:absolute;display:block;top:0px;left:0px;_display:none}
+.chat_area .s_chat .run_rt {position:absolute;display:block;top:0px;right:0px;_display:none}
+.chat_area .s_chat .run_lb {position:absolute;display:block;bottom:0px;left:0px;_display:none}
+.chat_area .s_chat .run_rb {position:absolute;display:block;bottom:0px;right:0px;_display:none}
+
+.chat_area .s_chat_layer {position:fixed;top:5px;left:5px;width:98%;margin:0 auto;_position:absolute;z-index:200}
+.chat_area .s_chat_layer .s_chat {background-color:#4e9dee;position:relative;padding-top:5px;margin-bottom:5px}
+.chat_area .s_chat .game_pr {display:block;height:48px;width:95%}
+.chat_area .s_chat .game_pr .img_g {position:absolute;top:5px;left:6px;border:0}
+.chat_area .s_chat .layer_close {position:absolute;top:6px;right:4px;padding:0 3px}
+.chat_area .s_chat .layer_close img {border:0}
+.chat_area .s_chat .game_pr span {display:block;color:#fff;padding:5px 0 0 51px}
+.chat_area .s_chat .game_pr em {font-weight:bold;color:#003974;display:block;padding-left:51px;font-size:12px}
+.chat_area .s_chat_layer {position:fixed; _position:absolute; z-index:100; left:0; top:5px;_bottom:-1px; width:100%;_width:93%;_left:2px;overflow:hidden}
+
+/* 130709 초콜릿추가 */
+.chat_area .chocolate {width:195px;height:198px;position:relative;margin: 5px 0 30px}
+.chat_area .chocolate .text {color: #666;letter-spacing: 0;position: absolute;bottom:2px;left: 0;text-align:center;width:100%;font-size:11px;line-height:1.3em}
+.chat_area .chocolate .text strong {font-size:11px}
+.chat_area .chocolate .text span.bal_txt {font-size:11px}
+.chat_area .chocolate .text span.bal_txt strong {font-size:11px}
+.chat_area .chocolate .text span.bal_txt span.num {color:#f52b35;font-size:11px;font-weight:bold}
+
+/* 130807 */
+.chat_area .chocolate1 {width:195px;position:relative;margin: -4px auto 12px auto;text-align:center;}
+.chat_area .chocolate1 img.png24 {margin-bottom:30px}
+.chat_area .chocolate1 p.ea {position:absolute;top:11px;left:0;text-align:center;width:100%;color:#c61e26;font-size:35px;font-family:arial;line-height:1.0em;letter-spacing:-1px;z-index:50;font-weight:bold;text-shadow:0 0px 1px #fff;}
+.chat_area .chocolate1 .text {color: #666;letter-spacing: 0;position: absolute;bottom:2px;left: 0;text-align:center;width:100%;font-size:11px;line-height:1.3em}
+.chat_area .chocolate1 .text strong {font-size:11px}
+.chat_area .chocolate1 .text span.bal_txt {font-size:11px}
+.chat_area .chocolate1 .text span.bal_txt strong {font-size:11px}
+.chat_area .chocolate1 .text span.bal_txt span.num {color:#f52b35;font-size:11px;font-weight:bold}
+.chat_area .chat_item {text-align:center}
+
+.chat_area .tac {text-align:center}
+
+/* 130827 채팅 이모티콘 */
+.chat_area .position_wrap {position:relative;z-index:100}
+.chat_area .emoticon_wrap * {margin:0;padding:0;}
+.chat_area .emoticon_wrap li {list-style:none}
+.chat_area .emoticon_wrap img {border:none;}
+.chat_area .emoticon_wrap .emoticon {width:200px;height:186px;position:relative}
+.chat_area .emoticon_wrap .emoticon .tab_area {
+	height:23px;font-weight:bold;color:#222;font-family:'돋움';font-size:12px;letter-spacing:-1px;
+	border:1px solid #316c90;background:#59a6d4;display:block;position:relative}
+.chat_area .emoticon_wrap .emoticon .tab_area ul {position:absolute;bottom:-1px;left:5px;width:100%;overflow:hidden}
+.chat_area .emoticon_wrap .emoticon .tab_area li {font-size:11px;font-family:'돋움',dotum;color:#fff;width:51px;text-align:center;font-weight:normal;border:1px solid #316c90;border-bottom:none;padding:3px 0 0 0;background:#3a6f8f;height:14px;float:left;cursor:pointer}
+.chat_area .emoticon_wrap .emoticon .tab_area li.on {background:#fff;color:#000}
+
+.chat_area .emoticon_wrap .con {width:174px;overflow:hidden;margin:0 0 0 11px;}
+.chat_area .emoticon_wrap .con li {float:left;list-style:none !important}
+.chat_area .emoticon_wrap .con li a {overflow:hidden;display:block;width:29px;height:27px}
+.chat_area .emoticon_wrap .con li a:hover {background:url(http://www.afreeca.com/images/player/emoticon/box_line.gif) 0 0 no-repeat}
+.chat_area .emoticon_wrap .con li a img {margin:3px 0 0 3px;display:inline}
+.chat_area .emoticon_wrap .emo {height:138px;border-left:1px solid #888888;border-right:1px solid #888888;padding-top:4px}
+
+.chat_area .emoticon_wrap .emoticon a.btn_close {
+	display:block;text-indent:-9999px;overflow:hidden;width:15px;height:15px;
+	background:url(http://www.afreeca.com/images/player/emoticon/btn_close.gif) 1px 1px no-repeat;position:absolute;top:5px;right:3px}
+.chat_area .emoticon_wrap .emoticon .pg {text-align:center;border:1px solid #888888;border-top:none;height:21px;overflow:hidden;background:#f2f3f3}
+.chat_area .emoticon_wrap .emoticon .pg a {display:inline-block;width:52px;letter-spacing:-1px;color:#585858;font-size:11px;font-family:'돋움',dotum;text-decoration:none;padding:2px 0 0 0;margin:3px 4px 0 4px}
+.chat_area .emoticon_wrap .emoticon .pg a.btn_prev {background:url(http://www.afreeca.com/images/player/emoticon/btn_prev.gif) right 0 no-repeat}
+.chat_area .emoticon_wrap .emoticon .pg a.btn_next {background:url(http://www.afreeca.com/images/player/emoticon/btn_next.gif) 0 0 no-repeat}
+.chat_area .emoticon_wrap .emo .game_area {width:100%;overflow:hidden;position:relative;height:11px;padding-top:3px;height:38px}
+.chat_area .emoticon_wrap .emo .game_area .g_pg a {display:block;position:absolute;width:18px;height:28px;text-indent:-9999em;overflow:hidden;z-index:1000}
+.chat_area .emoticon_wrap .emo .game_area a.btn_g_prev {background:url(http://www.afreeca.com/images/player/emoticon/btn_g_prev.gif) 7px 8px no-repeat;left:0}
+.chat_area .emoticon_wrap .emo .game_area a.btn_g_next {background:url(http://www.afreeca.com/images/player/emoticon/btn_g_next.gif) 7px 8px no-repeat;right:0}
+.chat_area .emoticon_wrap .emo .game_area ul {width:168px;margin:0 0 0 19px;float:left}
+.chat_area .emoticon_wrap .emo .game_area li {float:left;width:28px;height:28px;position:relative;margin-left:-1px}
+.chat_area .emoticon_wrap .emo .game_area li a img {width:28px;height:28px}
+.chat_area .emoticon_wrap .emo .game_area li a span {height:28px;width:28px;position:absolute;top:0;left:0;display:block;background:url(http://www.afreeca.com/images/player/emoticon/g_line1.gif) 0 0 no-repeat;z-index:10;text-indent:-99999em}
+.chat_area .emoticon_wrap .emo .game_area li.on a span {position:absolute;top:0;left:0;background:url(http://www.afreeca.com/images/player/emoticon/g_line2.gif) 0 0 no-repeat}
+.chat_area .emoticon_wrap .emo .game_area li.no a span {position:absolute;top:0;left:0;background:url(http://www.afreeca.com/images/player/emoticon/g_no.gif) 0 0 no-repeat;z-index:9}
+.chat_area .emoticon_wrap .g_emoticon {text-align:center;font-size:11px;color:#316c90;line-height:1.5em}
+.chat_area .emoticon_wrap .g_emoticon a {display:block;width:76px;height:27px;margin:7px auto}
+
+/* 퀵뷰선물권 */
+.chat_area .gift_area {width:195px;position:relative;margin:5px auto 10px auto;}
+.chat_area .gift_area img {display:block}
+.chat_area .gift_area .text {width:195px;text-align:center;margin-top:5px;font-size:11px;color:#666;line-height:1.2em}
+.chat_area .gift_area .text span {font-size:11px;font-weight:bold;color:#328fde}
+.chat_area .gift_area .text strong {font-size:11px;color:/*#f52b35*/;} /* 2015-08-24 주석처리 수정 */
+
+/* 불타는 텐미닛 2013.09.04 */
+.chat_area .tenmin {position:relative; background:url("http://www.afreeca.com/images/game_center/chat_tenmin.jpg") no-repeat; width:210px; height:197px; margin:0 auto;}
+.chat_area .tenmin em {font-size:36px; font-weight:bold; color:#fd1100; font-family:Arial; text-align:center; position:absolute; top:45px; left:70px; width:76px;}
+.chat_area .tenmin p {line-height:14px; font-size:11px; color:#5c5c5c; position:absolute; bottom:14px; width:100%; text-align:center;}
+
+/* 140225 게임다운받기 추가 */
+.chat_area .chocolate_game {width:195px;position:relative;margin: -4px auto 12px auto;text-align:center;}
+.chat_area .chocolate_game img.png24 {margin-bottom:52px}
+.chat_area .chocolate_game p.ea {position:absolute;top:5px;left:0;text-align:center;width:100%;color:#c61e26;font-size:35px;font-family:arial;line-height:1.0em;letter-spacing:-1px;z-index:50;font-weight:bold}
+.chat_area .chocolate_game .text {color: #666;letter-spacing: 0;position: absolute;bottom:2px;left: 0;text-align:center;width:100%;font-size:11px;line-height:1.3em}
+.chat_area .chocolate_game p.down {padding:0 0 3px 0}
+.chat_area .chocolate_game p.down a {font-size:11px;color:#a13900;font-family:'돋움',dotum;text-decoration:underline;/* 140227삭제 background:url(http://www.afreeca.com/images/player/bul_down.gif) right 4px no-repeat;padding-right:3px */}
+.chat_area .chocolate_game .text strong {font-size:11px}
+.chat_area .chocolate_game .text span.bal_txt {font-size:11px}
+.chat_area .chocolate_game .text span.bal_txt strong {font-size:11px}
+.chat_area .chocolate_game .text span.bal_txt span.num {color:#f52b35;font-size:11px;font-weight:bold}
+
+/* 140328 게임다운받기 추가 */
+.chat_area .vote_txt {margin:11px 0 0 0;padding:9px 0 8px 0;background:#f5f5f5; text-align:center; font-weight:bold; color:#666;}
+.chat_area .vote_txt span {display:block; font-weight:normal; font-size:11px;margin-top:2px}
+.chat_area .vote_txt img {padding-top:3px;}
+
+
+.chat_area .layer_context a {color:#3c3c3c !important; font-weight:normal !important; text-align:left !important;}
+.chat_area .layer_context .text strong {color:#328fde !important;}
+
+/* 샵프리카  */
+.shop_area{position:relative;width:195px;margin:5px auto 15px auto}
+.shop_area .text{font-size:12px;text-align:center;font-weight:bold}
+.shop_area .text p, .shop_area .text p span{font-size:11px}
+.shop_area .text span{color:#f7411c}
+.shop_area p em{font-weight:normal}
+.shop_area .text p.stxt{font-weight:normal;font-size:11px;margin-top:5px}
+.shop_area .text p.stxt a{font-size:11px;color:#127cff;text-decoration:underline}
+
+/* 2015-08-24 추가 */
+.m_chat_area .chat_memoyo dl {margin:3px 0 0;}
+.m_chat_area .chat_memoyo dt,
+.m_chat_area .chat_memoyo dd {line-height:1.5em;}
+.m_chat_area .chat_memoyo dd {padding:0 0 3px;
+word-wrap: break-word;
+white-space: -moz-pre-wrap;
+white-space: -pre-wrap;
+white-space: -o-pre-wrap;
+word-break:break-all;
+}
+.m_chat_area .chat_memoyo dt img {margin:0 4px 0 0;}
+.m_chat_area .chat_memoyo p {line-height:1.3em; margin:6px 0 0;}
+
+/* 160125 */
+.chat_area .notice_gamble{margin-top:19px}
+.chat_area .notice_gamble dt{background-position:0 -974px;color:#11a3ff;font-weight:bold;padding-top:3px;}
+.chat_area .notice_gamble dd{padding-left:0}
+.chat_area .notice_gamble dd .box{background:#11a3ff;color:#fff;padding:12px 9px 9px 9px;line-height:1.2em;border-radius:2px;font-size:13px;position:relative;margin-top:2px;letter-spacing:-1px}
+.chat_area  .ic_arw_blue{background:url(http://www.afreeca.com/images/new_app/chat/ic_blue_arw.png) 0 0 no-repeat;width:5px;height:3px;position:absolute;top:-3px;left:43px}
+
+
+
+/* more chat */
+/* .chatbox .chat_area {bottom:0 !important;} */
+.chatbox {min-height:auto !important;}
+.chatbox .actionbox .chat_write .write_area {margin:9px !important;}
+.chatbox #chat_area2 {bottom:0 !important;}
+.chatbox #chat_area3 {top:62px !important; bottom:0 !important;}
+#chatbox2 {right:0 !important; bottom:247px !important;}
+#chatbox3 {top:auto !important; bottom:0 !important; right:0 !important; min-height:auto !important; height:245px; border-top:2px solid #4578ff}
+.btn_org{color:#676767 !important;}
+.merge_num{display:inline-block;min-width:20px;height:13px;padding:0 3px 0 2px;margin-left:5px;border:1px solid #0aa5ff;border-radius:20px;background:#0aa5ff;text-align:center;line-height:13px;font-size:11px;color:#fff}
+.emoticon_area {display:none; position:fixed;bottom:110px;right:310px;z-index:1000; width:100px; height:100px;;}
+.emoticon_area.emotion_on {display:block;}
+.emoticon_laugh {background:url('/img/ico_laugh.png') no-repeat; background-size:100px 100px}
+.emoticon_smile {background:url('/img/ico_smile.png') no-repeat; background-size:100px 100px}
+.emoticon_cry {background:url('/img/ico_cry.png') no-repeat; background-size:100px 100px}
+.emoticon_surprised {background:url('/img/ico_surprise.png') no-repeat; background-size:100px 100px}
+.emoticon_shake {background:url('/img/ico_shake.png') no-repeat; background-size:100px 100px}
+.emoticon_O{background:url('/img/ico_O.png') no-repeat; background-size:100px 110px}
+.videobox .embed_in {padding-bottom:0 !important;}
+
+/* .chatbox #chat_area {margin-bottom:117px;} */
+.chat_area #chat_area_more dl,
+.chat_area #chat_area_search dl {margin-top:4px;}
+.chat_area #chat_area_more dl dt,
+.chat_area #chat_area_search dl dt {display:inline; padding:1px 0; background:none; word-break:break-all;}
+.chat_area #chat_area_more dl dt a,
+.chat_area #chat_area_search dl dt a {color:#767676;}
+.chat_area #chat_area_more dl dd,
+.chat_area #chat_area_search dl dd {display:inline; padding:1px 3px 0; word-break:break-all;}
+.chat_area #chat_area_more .merged .merged_msg {margin:5px 0 2px 8px; font-weight:bold; color:#222; cursor:pointer;}
+.chat_area #chat_area_more .merged .merged_msg:before {content:''; display:inline-block; width:7px; height:7px; background:url('/img/arrow_img.gif') 2px 0 no-repeat; margin-right:5px; vertical-align:middle;}
+.chat_area #chat_area_more .merged dl {display:none; padding:3px 0 0 20px; margin:0; background:#eee;}
+.chat_area #chat_area_more .merged dl:last-child {padding-bottom:3px;} 
+.chat_area #chat_area_more .merged.merged_open dl {display:block;}
+.chat_area #chat_area_more .merged.merged_open .merged_msg:before {background-position:-9px 0;}
+
+.search_wrap {padding:5px; border-bottom:1px solid #e1e1e1;}
+.search_tag {height:22px; padding:2px 0 0 10px; border:1px solid #b7b7b7; border-radius:4px; background:#fff;}
+.search_tag .search_input {width:230px; height:20px; color:#0aa5ff; border:0; background:none; vertical-align:middle; outline:none;}
+.search_tag .btn_cancel {display:inline-block; padding:3px; font-size:14px; text-decoration:none;}
+.search_tag .btn_search {display:inline-block; width:20px; height:20px; vertical-align:middle; background:url('/img/ico_search.png') no-repeat center center;}
+
+
+@media all and (max-width:1105px){
+	/* #chatbox2, #chatbox3{display:non2e}
+	.emoticon_area{right:0} */
+}
+
+
+@media all and (max-width:1103px) {
+	.contbox .chatbox {/* right:0; */right:301px !important;}
+	.contbox .listbox,
+	.contbox .favbox {display: none !important;}
+	.contbox .videobox {/* right:301px; */right:602px !important;}
+	.topbox .airlist,
+	.topbox .fav,
+	.topbox .search {display: none;}
+	.cb_list .videobox,
+	
+	.cb_video .videobox {right:0;}
+	.videobox .bj_vod li {width:100%;}
+}
+
+
+
+
+@media (max-width: 802px){
+.wrap .contbox .chatbox {display: block !important;}
+    /* display: none !important; */
+}
